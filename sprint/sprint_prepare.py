@@ -86,13 +86,13 @@ def prepare():
     
     
         print 'Building BWA index...'
-        step1=subprocess.Popen(bwa+' index -a bwtsw '+refgenome,shell=True)
-        step2=subprocess.Popen(bwa+' index -a bwtsw '+refgenome+'.mskAG.fa',shell=True)
-        step3=subprocess.Popen(bwa+' index -a bwtsw '+refgenome+'.mskTC.fa',shell=True)
+        step1=subprocess.Popen(bwa+' index '+refgenome,shell=True)
+        step2=subprocess.Popen(bwa+' index '+refgenome+'.mskAG.fa',shell=True)
+        step3=subprocess.Popen(bwa+' index '+refgenome+'.mskTC.fa',shell=True)
         if gtf_file !=False:
-            step4=subprocess.Popen(bwa+' index -a bwtsw '+refgenome+'.trans.fa',shell=True)
-            step5=subprocess.Popen(bwa+' index -a bwtsw '+refgenome+'.trans.fa.mskAG.fa',shell=True)
-            step6=subprocess.Popen(bwa+' index -a bwtsw '+refgenome+'.trans.fa.mskTC.fa',shell=True)
+            step4=subprocess.Popen(bwa+' index '+refgenome+'.trans.fa',shell=True)
+            step5=subprocess.Popen(bwa+' index '+refgenome+'.trans.fa.mskAG.fa',shell=True)
+            step6=subprocess.Popen(bwa+' index '+refgenome+'.trans.fa.mskTC.fa',shell=True)
             step4.wait()
             step5.wait()
             step6.wait()
